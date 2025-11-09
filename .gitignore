@@ -1,0 +1,4 @@
+# Ignore these files
+data/weather_cleaned.csv
+# Ignore generated
+plots/

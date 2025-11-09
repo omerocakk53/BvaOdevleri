@@ -10,16 +10,24 @@ Amaç, Türkiye'deki farklı şehirlerden toplanan hava durumu verilerini temizl
 ```
 ├── data/
 │   └── weather_dataset_1000.csv        # Ham veri seti
+|
+├── main.py             # Ana çalıştırılabilir betik
+|
+├── script/
+│   ├── read_csv_file   # Veri okuma  
+│   └── save_data.py    # Veriyi .csv olarak kaydetme
 │
-├── scripts/
-│   ├── main.py                         # Ana çalıştırılabilir betik
+├── preprocessing/
 │   ├── categorical_cleaner.py          # Kategorik veri temizleme modülü
 │   ├── outlier_handler.py              # Aykırı değer tespiti ve düzeltme modülü
 │   ├── duplicate_handler.py            # Tekrarlayan kayıtları temizleme modülü
+|   ├── type_converter                  # Verileri doğru olan değişken tiplerine dönüştür
 │   └── missing_value_handler.py        # Eksik değer doldurma modülü
 │
 ├── analysis/
-│   └── statistics_summary.csv          # Analiz sonuçlarının özet dosyası
+│   ├── central_tendency.py      # (Mean, Median, Mod) Hesaplıyor
+│   ├── dispersion.py            # (Varyans, Standart Sapma, Min ve Max) Hesaplanıyor
+│   └── summary_report.py        #
 │
 ├── plots/
 │   ├── temperature_trend.png           # Zaman serisi grafiği
@@ -43,12 +51,11 @@ pip install pandas numpy matplotlib seaborn
 
 ### 2️⃣ Ana Betiği Çalıştır
 ```bash
-python scripts/main.py
+python main.py
 ```
 
 ### 3️⃣ Sonuçlar
-- Temizlenmiş veri `cleaned_data.csv` olarak oluşturulur.  
-- İstatistiksel özetler `analysis/` klasöründe kaydedilir.  
+- Temizlenmiş veri `data/weather_cleaned.csv` olarak oluşturulur.  
 - Görseller `plots/` klasöründe oluşturulur.  
 - Rapor dosyası `report/` klasöründedir.
 
